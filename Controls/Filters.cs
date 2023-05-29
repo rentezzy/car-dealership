@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace car_dealership.Controls
 {
-    internal class Filters
+    public class Filters
     {
-        List<Car> cars;
+        public List<Car> carsOrigin { get; }
+        private List<Car> carsDirty; 
         public Filters(List<Car> cars) { 
-            this.cars = cars;
+            this.carsOrigin = cars;
         }
         public List<Car> filterByModel(string text)
         {
@@ -18,7 +19,7 @@ namespace car_dealership.Controls
 
             string t = text.ToLower();
 
-            foreach (Car car in cars)
+            foreach (Car car in carsOrigin)
             {
                 if (car.model.ToLower().Contains(t))
                 {
@@ -26,8 +27,30 @@ namespace car_dealership.Controls
                 }
             }
 
-            cars = result;
-            return cars;
+            carsDirty = result;
+            return carsDirty;
+        }
+        public List<Car> filterByBrand(string text)
+        {
+            List<Car> result = new List<Car>();
+
+            string t = text.ToLower();
+
+            foreach (Car car in carsOrigin)
+            {
+                if (car.brand.ToLower().Contains(t))
+                {
+                    result.Add(car);
+                }
+            }
+
+            carsDirty = result;
+            return carsDirty;
+        }
+
+        public List<Car> getCars()
+        {
+            return carsDirty;
         }
     }
 }

@@ -38,6 +38,7 @@
             bindingSource1 = new BindingSource(components);
             CarsList = new ListBox();
             GetCarInfoButton = new Button();
+            textBox1 = new TextBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
@@ -105,12 +106,21 @@
             GetCarInfoButton.UseVisualStyleBackColor = true;
             GetCarInfoButton.Click += GetCarInfoButton_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(22, 50);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(161, 23);
+            textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox1);
             Controls.Add(GetCarInfoButton);
             Controls.Add(CarsList);
             Controls.Add(menuStrip1);
@@ -137,5 +147,6 @@
         private ListBox CarsList;
         private Label label1;
         private Button GetCarInfoButton;
+        private TextBox textBox1;
     }
 }

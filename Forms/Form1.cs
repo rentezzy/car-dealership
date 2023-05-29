@@ -1,3 +1,4 @@
+using car_dealership.Controls;
 using car_dealership.Forms;
 using System.Windows.Forms;
 
@@ -5,15 +6,18 @@ namespace car_dealership
 {
     public partial class Form1 : Form
     {
+        public CarsList cars = new();
+
+        public Filters filter;
         public Form1()
         {
             InitializeComponent();
 
-            CarsList cars = new();
-
             cars.AddCar(new Car("Daewoo", "Lanos", 100000, 2000, 1.3, "Mechanical", "New"));
-            cars.AddCar(new Car("Daewoo", "Lanos", 100000, 2001, 1.3, "Mechanical", "New"));
-            cars.AddCar(new Car("Daewoo", "Lanos", 100000, 2002, 1.3, "Mechanical", "New"));
+            cars.AddCar(new Car("Daewoo", "Matiz", 100000, 2001, 1.3, "Mechanical", "New"));
+            cars.AddCar(new Car("Daewoo", "Sens", 100000, 2002, 1.3, "Mechanical", "New"));
+
+            filter = new(cars.getCars());
 
             bindingSource1.DataSource = cars.getCars();
         }
@@ -35,6 +39,12 @@ namespace car_dealership
 
             var form = new CarInfo(car);
             form.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            filter.filterByModel(textBox1.Text);
+            bindingSource1.DataSource = filter.getCars();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace car_dealership
 {
-    internal class CarsList
+    public class CarsList
     {
         private List<Car> cars;
         public CarsList()
