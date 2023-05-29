@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             CarsStripButton = new ToolStripMenuItem();
             SaleCarStripButton = new ToolStripMenuItem();
             BuyCarStripButton = new ToolStripMenuItem();
             NotificationsStripButton = new ToolStripMenuItem();
             ProfileStripButton = new ToolStripMenuItem();
+            bindingSource1 = new BindingSource(components);
+            CarsList = new ListBox();
+            GetCarInfoButton = new Button();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -79,12 +84,35 @@
             ProfileStripButton.Size = new Size(89, 20);
             ProfileStripButton.Text = "Мій профіль";
             // 
+            // CarsList
+            // 
+            CarsList.DataSource = bindingSource1;
+            CarsList.FormattingEnabled = true;
+            CarsList.ItemHeight = 15;
+            CarsList.Location = new Point(12, 180);
+            CarsList.Name = "CarsList";
+            CarsList.Size = new Size(776, 259);
+            CarsList.TabIndex = 1;
+            CarsList.SelectedIndexChanged += CarsList_SelectedIndexChanged;
+            // 
+            // GetCarInfoButton
+            // 
+            GetCarInfoButton.Location = new Point(731, 142);
+            GetCarInfoButton.Name = "GetCarInfoButton";
+            GetCarInfoButton.Size = new Size(57, 32);
+            GetCarInfoButton.TabIndex = 2;
+            GetCarInfoButton.Text = "GetInfo";
+            GetCarInfoButton.UseVisualStyleBackColor = true;
+            GetCarInfoButton.Click += GetCarInfoButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(800, 450);
+            Controls.Add(GetCarInfoButton);
+            Controls.Add(CarsList);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
@@ -92,6 +120,7 @@
             TopMost = true;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -104,5 +133,9 @@
         private ToolStripMenuItem BuyCarStripButton;
         private ToolStripMenuItem NotificationsStripButton;
         private ToolStripMenuItem ProfileStripButton;
+        private BindingSource bindingSource1;
+        private ListBox CarsList;
+        private Label label1;
+        private Button GetCarInfoButton;
     }
 }

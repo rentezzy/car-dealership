@@ -6,20 +6,24 @@ using System.Threading.Tasks;
 
 namespace car_dealership
 {
-    internal class Car
+    public class Car
     {
-        private string brand;
-        private string model;
-        private int price;
-        private int year;
-        private double engine;
-        private string gearbox;
-        private string condition;
+        public string brand { get; }
+        public string model { get; }
+        public int price { get; }
+        public int year { get; }
+        public double engine { get; }
+        public string gearbox { get; }
+        public string condition { get; }
         public Car(string brand, string model, int price, int year,double engine,string gearbox, string condition) 
         {
             this.brand = brand; this.model = model; this.price = price;
             this.year = year; this.engine=engine; this.gearbox = gearbox;
             this.condition = condition;
+        }
+        public override string ToString()
+        {
+            return $"{brand} {model}. {year} year. {price} $.";
         }
     }
 }
