@@ -69,6 +69,10 @@ namespace car_dealership
         { 
             cars.Add(car);
         }
+        public void SetCars(List<Car> cars)
+        {
+            this.cars = cars;
+        }
 
     }
 }

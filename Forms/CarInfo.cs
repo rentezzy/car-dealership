@@ -17,7 +17,13 @@ namespace car_dealership.Forms
             InitializeComponent();
 
             this.Text = car.ToString();
-            CarInfoModel.Text = car.ToString();
+            CarInfoModel.Text = car.model;
+            CarInfoBrand.Text = car.brand;
+            CarInfoPrice.Text = $"{car.price} $";
+            CarInfoYear.Text = $"{car.year}";
+            CarInfoCondition.Text = car.condition;
+            CarInfoEngine.Text = $"{car.engine}";
+            CarInfoGearbox.Text = car.gearbox;
         }
 
         private void CarInfo_Load(object sender, EventArgs e)

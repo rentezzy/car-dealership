@@ -1,5 +1,6 @@
 using car_dealership.Controls;
 using car_dealership.Forms;
+using car_dealership.Models;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -7,15 +8,20 @@ namespace car_dealership
 {
     public partial class Form1 : Form
     {
-        public CarsList cars = new();
+        private CarsList cars = new();
+        private Users users = new();
 
         public Form1()
         {
             InitializeComponent();
-
+            DataAccess.Load(cars,users);
+            /*users.addUser("hello");
+            users.addUser("me");
+            users.addUser("admin");
             cars.AddCar(new Car("Daewoo", "Lanos", 100000, 2000, 1.3, "Mechanical", "New"));
             cars.AddCar(new Car("Daewoo", "Matiz", 100000, 2001, 1.3, "Mechanical", "New"));
-            cars.AddCar(new Car("Daewoo", "Sens", 100000, 2002, 1.3, "Mechanical", "New"));
+            cars.AddCar(new Car("Daewoo", "Sens", 100000, 2002, 1.3, "Mechanical", "New"));*/
+            //DataAccess.Save(cars, users);
 
             bindingSource1.DataSource = cars.getCars();
         }
@@ -44,6 +50,7 @@ namespace car_dealership
 
             var form = new CarInfo(car);
             form.Show();
+            form.BringToFront();
         }
 
         private void TextBoxFilterModel_TextChanged(object sender, EventArgs e)
