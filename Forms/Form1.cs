@@ -1,6 +1,7 @@
 using car_dealership.Controls;
 using car_dealership.Forms;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace car_dealership
 {
@@ -8,7 +9,6 @@ namespace car_dealership
     {
         public CarsList cars = new();
 
-        public Filters filter;
         public Form1()
         {
             InitializeComponent();
@@ -17,13 +17,18 @@ namespace car_dealership
             cars.AddCar(new Car("Daewoo", "Matiz", 100000, 2001, 1.3, "Mechanical", "New"));
             cars.AddCar(new Car("Daewoo", "Sens", 100000, 2002, 1.3, "Mechanical", "New"));
 
-            filter = new(cars.getCars());
-
             bindingSource1.DataSource = cars.getCars();
         }
 
 
+        private void DoFilter()
+        {
 
+           List<Car> filtered = cars.filterBy(TextBoxFilterModel.Text, TextBoxFilterBrand.Text,
+                TextBoxFilterYearFrom.Text, TextBoxFilterYearTo.Text,
+                TextBoxFilterPriceFrom.Text, TextBoxFilterPriceTo.Text);
+            bindingSource1.DataSource = filtered;
+        }
         private void SaleCarStripButton_Click(object sender, EventArgs e)
         {
         }
@@ -41,10 +46,54 @@ namespace car_dealership
             form.Show();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBoxFilterModel_TextChanged(object sender, EventArgs e)
         {
-            filter.filterByModel(textBox1.Text);
-            bindingSource1.DataSource = filter.getCars();
+            DoFilter();
+        }
+
+        private void TextBoxFilterBrand_TextChanged(object sender, EventArgs e)
+        {
+            DoFilter();
+        }
+
+        private void TextBoxFilterYearFrom_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(TextBoxFilterYearFrom.Text, "[^0-9]"))
+            {
+                TextBoxFilterYearFrom.Text = TextBoxFilterYearFrom.Text.Remove(TextBoxFilterYearFrom.Text.Length - 1);
+            }
+
+            DoFilter();
+        }
+
+        private void TextBoxFilterYearTo_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(TextBoxFilterYearTo.Text, "[^0-9]"))
+            {
+                TextBoxFilterYearTo.Text = TextBoxFilterYearTo.Text.Remove(TextBoxFilterYearTo.Text.Length - 1);
+            }
+
+            DoFilter();
+        }
+
+        private void TextBoxFilterPriceFrom_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(TextBoxFilterPriceFrom.Text, "[^0-9]"))
+            {
+                TextBoxFilterPriceFrom.Text = TextBoxFilterPriceFrom.Text.Remove(TextBoxFilterPriceFrom.Text.Length - 1);
+            }
+
+            DoFilter();
+        }
+
+        private void TextBoxFilterPriceTo_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(TextBoxFilterPriceTo.Text, "[^0-9]"))
+            {
+                TextBoxFilterPriceTo.Text = TextBoxFilterPriceTo.Text.Remove(TextBoxFilterPriceTo.Text.Length - 1);
+            }
+
+            DoFilter();
         }
     }
 }
