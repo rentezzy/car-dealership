@@ -1,4 +1,6 @@
-﻿using System;
+﻿using car_dealership.Controls;
+using car_dealership.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,16 @@ namespace car_dealership.Forms
 {
     public partial class CarInfo : Form
     {
-        public CarInfo(Car car)
+        private Car car;
+        private Users users;
+        private CarsList cars;
+        public CarInfo(Car car, Users users,CarsList cars)
         {
             InitializeComponent();
+
+            this.car = car;
+            this.users = users;
+            this.cars = cars;
 
             this.Text = car.ToString();
             CarInfoModel.Text = car.model;
@@ -24,11 +33,25 @@ namespace car_dealership.Forms
             CarInfoCondition.Text = car.condition;
             CarInfoEngine.Text = $"{car.engine}";
             CarInfoGearbox.Text = car.gearbox;
+            CarInfoOwner.Text = car.owner.username;
         }
 
         private void CarInfo_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (car.owner.username == users.currentUser.username) return;
+            foreach(User u in users.users)
+            {
+                if(u.username == car.owner.username)
+                {
+                    u.AddNotification($"User '{users.currentUser.username}', want to buy your car : {car.ToString()}");
+                    DataAccess.Save(cars, users);
+                }
+            }
         }
     }
 }

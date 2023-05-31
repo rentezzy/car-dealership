@@ -21,5 +21,9 @@ namespace car_dealership.Models
             carsToBuy = new();
         }
 
+        public void AddNotification(string message)
+        {
+            notifications.Add(new Notification(message));
+        }
     }
 }

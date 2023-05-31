@@ -53,7 +53,7 @@ namespace car_dealership
             Car? car = CarsList.SelectedItem as Car;
             if (car == null) return;
 
-            var form = new CarInfo(car);
+            var form = new CarInfo(car,users,cars);
             form.Show();
         }
 
@@ -110,6 +110,12 @@ namespace car_dealership
         private void ProfileStripButton_Click(object sender, EventArgs e)
         {
             var form = new MyAccount(users, cars);
+            form.Show();
+        }
+
+        private void NotificationsStripButton_Click(object sender, EventArgs e)
+        {
+            var form = new Notifications(users.currentUser);
             form.Show();
         }
     }

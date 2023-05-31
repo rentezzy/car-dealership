@@ -91,6 +91,7 @@
             NotificationsStripButton.Name = "NotificationsStripButton";
             NotificationsStripButton.Size = new Size(99, 20);
             NotificationsStripButton.Text = "Повідомлення";
+            NotificationsStripButton.Click += NotificationsStripButton_Click;
             // 
             // ProfileStripButton
             // 

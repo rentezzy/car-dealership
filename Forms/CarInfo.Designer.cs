@@ -42,6 +42,9 @@
             label10 = new Label();
             CarInfoEngine = new Label();
             label12 = new Label();
+            CarInfoOwner = new Label();
+            label7 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -170,12 +173,43 @@
             label12.TabIndex = 8;
             label12.Text = "Engine:";
             // 
+            // CarInfoOwner
+            // 
+            CarInfoOwner.AutoSize = true;
+            CarInfoOwner.Location = new Point(76, 203);
+            CarInfoOwner.Name = "CarInfoOwner";
+            CarInfoOwner.Size = new Size(0, 15);
+            CarInfoOwner.TabIndex = 17;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Cursor = Cursors.SizeNS;
+            label7.Location = new Point(15, 202);
+            label7.Name = "label7";
+            label7.Size = new Size(45, 15);
+            label7.TabIndex = 16;
+            label7.Text = "Owner:";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(12, 221);
+            button1.Name = "button1";
+            button1.Size = new Size(144, 28);
+            button1.TabIndex = 18;
+            button1.Text = "Send message to owner";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // CarInfo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(317, 239);
+            ClientSize = new Size(317, 252);
+            Controls.Add(button1);
+            Controls.Add(CarInfoOwner);
+            Controls.Add(label7);
             Controls.Add(CarInfoGearbox);
             Controls.Add(label5);
             Controls.Add(CarInfoCondition);
@@ -213,5 +247,8 @@
         private Label label10;
         private Label CarInfoEngine;
         private Label label12;
+        private Label CarInfoOwner;
+        private Label label7;
+        private Button button1;
     }
 }
