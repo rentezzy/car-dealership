@@ -175,7 +175,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(317, 212);
+            ClientSize = new Size(317, 239);
             Controls.Add(CarInfoGearbox);
             Controls.Add(label5);
             Controls.Add(CarInfoCondition);

@@ -64,12 +64,12 @@ namespace car_dealership
         }
 
 
-        public List<Car> getCars() {  return cars; }
-        public void AddCar(Car car) 
-        { 
+        public List<Car> getCars() { return cars; }
+        public void addCar(Car car)
+        {
             cars.Add(car);
         }
-        public void SetCars(List<Car> cars)
+        public void setCars(List<Car> cars)
         {
             this.cars = cars;
         }

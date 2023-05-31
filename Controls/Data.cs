@@ -16,7 +16,7 @@ namespace car_dealership.Controls
         public static void Save(CarsList cars, Users users)
         {
             string jsonStringCars = JsonSerializer.Serialize(cars.getCars());
-            string jsonStringUsers = JsonSerializer.Serialize(users.users);
+            string jsonStringUsers = JsonSerializer.Serialize(users.getUsers());
             File.WriteAllText(DATA_PATH_CARS, jsonStringCars);
             File.WriteAllText(DATA_PATH_USERS, jsonStringUsers);
         }
@@ -27,7 +27,7 @@ namespace car_dealership.Controls
             string jsonStringUsers = File.ReadAllText(DATA_PATH_USERS);
             var carList = JsonSerializer.Deserialize<List<Car>>(jsonStringCars);
             var userList = JsonSerializer.Deserialize<List<User>>(jsonStringUsers);
-            cars.SetCars(carList);
+            cars.setCars(carList);
             users.users = userList;
         }
 

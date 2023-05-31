@@ -7,25 +7,38 @@ using System.Threading.Tasks;
 
 namespace car_dealership.Models
 {
-    internal class Users
+    public class Users
     {
         public User currentUser { get; set; }
 
         public List<User> users { get; set; }
-        public Users() { 
-        users = new List<User>();
-
+        public Users()
+        {
+            users = new List<User>();
         }
         public void setUser(string un)
         {
-            foreach(User u in users)
+            foreach (User u in users)
             {
-                if(u.username == un) currentUser = u;
+                if (u.username == un) currentUser = u;
             }
         }
         public void addUser(string username)
         {
-            users.Add(new User(username));
+            User newUser = new(username);
+            foreach (User u in users)
+            {
+                if (u.username == username)
+                {
+                    return;
+                }
+            }
+            users.Add(newUser);
+            setUser(newUser.username);
+        }
+        public List<User> getUsers()
+        {
+            return users;
         }
     }
 }

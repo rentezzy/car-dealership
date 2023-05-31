@@ -14,15 +14,20 @@ namespace car_dealership
         public Form1()
         {
             InitializeComponent();
-            DataAccess.Load(cars,users);
+            DataAccess.Load(cars, users);
+
             /*users.addUser("hello");
             users.addUser("me");
             users.addUser("admin");
-            cars.AddCar(new Car("Daewoo", "Lanos", 100000, 2000, 1.3, "Mechanical", "New"));
-            cars.AddCar(new Car("Daewoo", "Matiz", 100000, 2001, 1.3, "Mechanical", "New"));
-            cars.AddCar(new Car("Daewoo", "Sens", 100000, 2002, 1.3, "Mechanical", "New"));*/
-            //DataAccess.Save(cars, users);
+            
+            cars.addCar(new Car("Daewoo", "Matiz", 12412, 2005, 1.3, "Mechanical", "New", users.getUsers()[1]));
+            cars.addCar(new Car("Daewoo", "Lanos", 1212412, 2005, 1.4, "Mechanical", "New", users.getUsers()[0]));
+            cars.addCar(new Car("Daewoo", "World", 124312, 2000, 1.4, "Mechanical", "New", users.getUsers()[1]));
+            cars.addCar(new Car("Daewoo", "QuQu", 124212, 2002, 1.3, "Mechanical", "New", users.getUsers()[0]));
+            cars.addCar(new Car("Daewoo", "Sens", 102, 2009, 1.3, "Mechanical", "New", users.getUsers()[1]));*/
 
+            DataAccess.Save(cars, users);
+            users.setUser("hello");
             bindingSource1.DataSource = cars.getCars();
         }
 
@@ -30,9 +35,9 @@ namespace car_dealership
         private void DoFilter()
         {
 
-           List<Car> filtered = cars.filterBy(TextBoxFilterModel.Text, TextBoxFilterBrand.Text,
-                TextBoxFilterYearFrom.Text, TextBoxFilterYearTo.Text,
-                TextBoxFilterPriceFrom.Text, TextBoxFilterPriceTo.Text);
+            List<Car> filtered = cars.filterBy(TextBoxFilterModel.Text, TextBoxFilterBrand.Text,
+                 TextBoxFilterYearFrom.Text, TextBoxFilterYearTo.Text,
+                 TextBoxFilterPriceFrom.Text, TextBoxFilterPriceTo.Text);
             bindingSource1.DataSource = filtered;
         }
         private void SaleCarStripButton_Click(object sender, EventArgs e)
@@ -50,7 +55,6 @@ namespace car_dealership
 
             var form = new CarInfo(car);
             form.Show();
-            form.BringToFront();
         }
 
         private void TextBoxFilterModel_TextChanged(object sender, EventArgs e)
@@ -101,6 +105,12 @@ namespace car_dealership
             }
 
             DoFilter();
+        }
+
+        private void ProfileStripButton_Click(object sender, EventArgs e)
+        {
+            var form = new MyAccount(users, cars);
+            form.Show();
         }
     }
 }

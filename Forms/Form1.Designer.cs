@@ -97,6 +97,7 @@
             ProfileStripButton.Name = "ProfileStripButton";
             ProfileStripButton.Size = new Size(89, 20);
             ProfileStripButton.Text = "Мій профіль";
+            ProfileStripButton.Click += ProfileStripButton_Click;
             // 
             // CarsList
             // 

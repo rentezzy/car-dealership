@@ -9,8 +9,8 @@ namespace car_dealership.Models
     public class Notification
     {
         public string message;
-        public Notification(string msg) 
-        { 
+        public Notification(string msg)
+        {
             message = msg;
         }
     }
