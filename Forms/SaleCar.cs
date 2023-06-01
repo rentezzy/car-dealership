@@ -31,9 +31,18 @@ namespace car_dealership.Forms
                 return;
             }
             string errors = "";
+            double engine = 0;
+
             if (SaleCarBrand.Text == "") errors += "Car must have a brand. ";
             if (SaleCarModel.Text == "") errors += "Car must have a model. ";
             if (SaleCarPrice.Text == "") errors += "Car must have a price. ";
+            try
+            {
+                engine = Convert.ToDouble(SaleCarEngine.Text);
+            } catch
+            {
+                errors += "Engine must be a number in format *,* ";
+            }
             if (errors != "")
             {
                 MessageBox.Show(errors, "ooppss...", MessageBoxButtons.OK);
@@ -51,8 +60,7 @@ namespace car_dealership.Forms
             {
                 gearbox = "Not specified";
             }
-            double engine = 0;
-            double.TryParse(SaleCarEngine.Text, out engine);
+
 
             cars.addCar(new Car(SaleCarBrand.Text, SaleCarModel.Text, int.Parse(SaleCarPrice.Text), int.Parse(SaleCarYear.Text), engine, gearbox, condition, users.currentUser));
 
@@ -79,10 +87,6 @@ namespace car_dealership.Forms
 
         private void SaleCarEngine_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(SaleCarEngine.Text, "[^0-9]"))
-            {
-                SaleCarEngine.Text = SaleCarEngine.Text.Remove(SaleCarEngine.Text.Length - 1);
-            }
         }
     }
 }
