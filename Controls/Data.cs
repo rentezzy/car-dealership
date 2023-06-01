@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace car_dealership.Controls
 {
-    internal static class DataAccess
+    public static class  DataAccess
     {
         const string DATA_PATH_CARS = "Cars.json";
         const string DATA_PATH_USERS = "Users.json";

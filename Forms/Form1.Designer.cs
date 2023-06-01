@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip1 = new MenuStrip();
             CarsStripButton = new ToolStripMenuItem();
             SaleCarStripButton = new ToolStripMenuItem();
@@ -62,7 +63,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { CarsStripButton, NotificationsStripButton, ProfileStripButton });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(802, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -70,60 +71,61 @@
             // 
             CarsStripButton.DropDownItems.AddRange(new ToolStripItem[] { SaleCarStripButton, BuyCarStripButton });
             CarsStripButton.Name = "CarsStripButton";
-            CarsStripButton.Size = new Size(81, 20);
-            CarsStripButton.Text = "Автомобілі";
+            CarsStripButton.Size = new Size(42, 20);
+            CarsStripButton.Text = "Cars";
             // 
             // SaleCarStripButton
             // 
             SaleCarStripButton.Name = "SaleCarStripButton";
-            SaleCarStripButton.Size = new Size(194, 22);
-            SaleCarStripButton.Text = "Продати автомобіль";
+            SaleCarStripButton.Size = new Size(116, 22);
+            SaleCarStripButton.Text = "Sale Car";
             SaleCarStripButton.Click += SaleCarStripButton_Click;
             // 
             // BuyCarStripButton
             // 
             BuyCarStripButton.Name = "BuyCarStripButton";
-            BuyCarStripButton.Size = new Size(194, 22);
-            BuyCarStripButton.Text = "Придбати автомобіль";
+            BuyCarStripButton.Size = new Size(116, 22);
+            BuyCarStripButton.Text = "Buy Car";
             // 
             // NotificationsStripButton
             // 
             NotificationsStripButton.Name = "NotificationsStripButton";
-            NotificationsStripButton.Size = new Size(99, 20);
-            NotificationsStripButton.Text = "Повідомлення";
+            NotificationsStripButton.Size = new Size(87, 20);
+            NotificationsStripButton.Text = "Notifications";
             NotificationsStripButton.Click += NotificationsStripButton_Click;
             // 
             // ProfileStripButton
             // 
             ProfileStripButton.Name = "ProfileStripButton";
-            ProfileStripButton.Size = new Size(89, 20);
-            ProfileStripButton.Text = "Мій профіль";
+            ProfileStripButton.Size = new Size(73, 20);
+            ProfileStripButton.Text = "My Profile";
             ProfileStripButton.Click += ProfileStripButton_Click;
             // 
             // CarsList
             // 
+            CarsList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CarsList.DataSource = bindingSource1;
             CarsList.FormattingEnabled = true;
             CarsList.ItemHeight = 15;
-            CarsList.Location = new Point(12, 180);
+            CarsList.Location = new Point(12, 113);
             CarsList.Name = "CarsList";
-            CarsList.Size = new Size(776, 259);
+            CarsList.Size = new Size(778, 244);
             CarsList.TabIndex = 1;
-            CarsList.SelectedIndexChanged += CarsList_SelectedIndexChanged;
             // 
             // GetCarInfoButton
             // 
-            GetCarInfoButton.Location = new Point(731, 142);
+            GetCarInfoButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            GetCarInfoButton.Location = new Point(701, 80);
             GetCarInfoButton.Name = "GetCarInfoButton";
-            GetCarInfoButton.Size = new Size(57, 32);
+            GetCarInfoButton.Size = new Size(88, 23);
             GetCarInfoButton.TabIndex = 2;
-            GetCarInfoButton.Text = "GetInfo";
+            GetCarInfoButton.Text = "Get Info";
             GetCarInfoButton.UseVisualStyleBackColor = true;
             GetCarInfoButton.Click += GetCarInfoButton_Click;
             // 
             // TextBoxFilterModel
             // 
-            TextBoxFilterModel.Location = new Point(54, 147);
+            TextBoxFilterModel.Location = new Point(55, 80);
             TextBoxFilterModel.Name = "TextBoxFilterModel";
             TextBoxFilterModel.Size = new Size(161, 23);
             TextBoxFilterModel.TabIndex = 3;
@@ -131,7 +133,7 @@
             // 
             // TextBoxFilterBrand
             // 
-            TextBoxFilterBrand.Location = new Point(54, 118);
+            TextBoxFilterBrand.Location = new Point(55, 51);
             TextBoxFilterBrand.Name = "TextBoxFilterBrand";
             TextBoxFilterBrand.Size = new Size(161, 23);
             TextBoxFilterBrand.TabIndex = 4;
@@ -140,7 +142,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(14, 121);
+            label2.Location = new Point(15, 54);
             label2.Name = "label2";
             label2.Size = new Size(41, 15);
             label2.TabIndex = 5;
@@ -149,7 +151,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(11, 150);
+            label3.Location = new Point(12, 83);
             label3.Name = "label3";
             label3.Size = new Size(44, 15);
             label3.TabIndex = 6;
@@ -158,7 +160,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(344, 100);
+            label4.Location = new Point(345, 33);
             label4.Name = "label4";
             label4.Size = new Size(29, 15);
             label4.TabIndex = 7;
@@ -167,7 +169,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(256, 150);
+            label5.Location = new Point(257, 83);
             label5.Name = "label5";
             label5.Size = new Size(22, 15);
             label5.TabIndex = 11;
@@ -176,7 +178,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(244, 121);
+            label6.Location = new Point(245, 54);
             label6.Name = "label6";
             label6.Size = new Size(38, 15);
             label6.TabIndex = 10;
@@ -184,8 +186,8 @@
             // 
             // TextBoxFilterYearFrom
             // 
-            TextBoxFilterYearFrom.Location = new Point(284, 118);
-            TextBoxFilterYearFrom.MaxLength = 5;
+            TextBoxFilterYearFrom.Location = new Point(285, 51);
+            TextBoxFilterYearFrom.MaxLength = 4;
             TextBoxFilterYearFrom.Name = "TextBoxFilterYearFrom";
             TextBoxFilterYearFrom.Size = new Size(161, 23);
             TextBoxFilterYearFrom.TabIndex = 9;
@@ -193,8 +195,8 @@
             // 
             // TextBoxFilterYearTo
             // 
-            TextBoxFilterYearTo.Location = new Point(284, 147);
-            TextBoxFilterYearTo.MaxLength = 5;
+            TextBoxFilterYearTo.Location = new Point(285, 80);
+            TextBoxFilterYearTo.MaxLength = 4;
             TextBoxFilterYearTo.Name = "TextBoxFilterYearTo";
             TextBoxFilterYearTo.Size = new Size(161, 23);
             TextBoxFilterYearTo.TabIndex = 8;
@@ -203,7 +205,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(488, 150);
+            label7.Location = new Point(489, 83);
             label7.Name = "label7";
             label7.Size = new Size(22, 15);
             label7.TabIndex = 16;
@@ -212,7 +214,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(476, 121);
+            label8.Location = new Point(477, 54);
             label8.Name = "label8";
             label8.Size = new Size(38, 15);
             label8.TabIndex = 15;
@@ -220,8 +222,8 @@
             // 
             // TextBoxFilterPriceFrom
             // 
-            TextBoxFilterPriceFrom.Location = new Point(516, 118);
-            TextBoxFilterPriceFrom.MaxLength = 12;
+            TextBoxFilterPriceFrom.Location = new Point(517, 51);
+            TextBoxFilterPriceFrom.MaxLength = 10;
             TextBoxFilterPriceFrom.Name = "TextBoxFilterPriceFrom";
             TextBoxFilterPriceFrom.Size = new Size(161, 23);
             TextBoxFilterPriceFrom.TabIndex = 14;
@@ -229,7 +231,7 @@
             // 
             // TextBoxFilterPriceTo
             // 
-            TextBoxFilterPriceTo.Location = new Point(516, 147);
+            TextBoxFilterPriceTo.Location = new Point(517, 80);
             TextBoxFilterPriceTo.MaxLength = 10;
             TextBoxFilterPriceTo.Name = "TextBoxFilterPriceTo";
             TextBoxFilterPriceTo.Size = new Size(161, 23);
@@ -239,7 +241,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(576, 100);
+            label9.Location = new Point(577, 33);
             label9.Name = "label9";
             label9.Size = new Size(33, 15);
             label9.TabIndex = 12;
@@ -250,7 +252,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(802, 366);
             Controls.Add(label7);
             Controls.Add(label8);
             Controls.Add(TextBoxFilterPriceFrom);
@@ -268,7 +270,9 @@
             Controls.Add(GetCarInfoButton);
             Controls.Add(CarsList);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
+            MinimumSize = new Size(818, 405);
             Name = "Form1";
             Text = "Car Dealership";
             TopMost = true;

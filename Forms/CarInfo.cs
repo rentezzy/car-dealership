@@ -43,7 +43,7 @@ namespace car_dealership.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (car.owner.username == users.currentUser.username) return;
+            if (car.owner.username == users.currentUser.username || users.currentUser.username == "default") return;
             foreach(User u in users.users)
             {
                 if(u.username == car.owner.username)

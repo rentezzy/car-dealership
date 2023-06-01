@@ -26,26 +26,34 @@ namespace car_dealership
             cars.addCar(new Car("Daewoo", "QuQu", 124212, 2002, 1.3, "Mechanical", "New", users.getUsers()[0]));
             cars.addCar(new Car("Daewoo", "Sens", 102, 2009, 1.3, "Mechanical", "New", users.getUsers()[1]));*/
 
-            DataAccess.Save(cars, users);
-            users.setUser("hello");
+            //DataAccess.Save(cars, users);
+            users.setUser("default");
             bindingSource1.DataSource = cars.getCars();
         }
 
 
-        private void DoFilter()
-        {
 
-            List<Car> filtered = cars.filterBy(TextBoxFilterModel.Text, TextBoxFilterBrand.Text,
-                 TextBoxFilterYearFrom.Text, TextBoxFilterYearTo.Text,
-                 TextBoxFilterPriceFrom.Text, TextBoxFilterPriceTo.Text);
-            bindingSource1.DataSource = filtered;
-        }
         private void SaleCarStripButton_Click(object sender, EventArgs e)
         {
+            var form = new SaleCar(cars , users);
+            form.ShowDialog();
+            if(form.DialogResult == DialogResult.OK)
+            {
+                bindingSource1.DataSource = form.cars.getCars();
+                bindingSource1.ResetBindings(true);
+            }
         }
 
-        private void CarsList_SelectedIndexChanged(object sender, EventArgs e)
+        private void NotificationsStripButton_Click(object sender, EventArgs e)
         {
+            var form = new Notifications(users.currentUser);
+            form.Show();
+        }
+
+        private void ProfileStripButton_Click(object sender, EventArgs e)
+        {
+            var form = new MyAccount(users, cars);
+            form.Show();
         }
 
         private void GetCarInfoButton_Click(object sender, EventArgs e)
@@ -53,15 +61,22 @@ namespace car_dealership
             Car? car = CarsList.SelectedItem as Car;
             if (car == null) return;
 
-            var form = new CarInfo(car,users,cars);
+            var form = new CarInfo(car, users, cars);
             form.Show();
         }
 
+
+        private void DoFilter()
+        {
+            List<Car> filtered = cars.filterBy(TextBoxFilterModel.Text, TextBoxFilterBrand.Text,
+                 TextBoxFilterYearFrom.Text, TextBoxFilterYearTo.Text,
+                 TextBoxFilterPriceFrom.Text, TextBoxFilterPriceTo.Text);
+            bindingSource1.DataSource = filtered;
+        }
         private void TextBoxFilterModel_TextChanged(object sender, EventArgs e)
         {
             DoFilter();
         }
-
         private void TextBoxFilterBrand_TextChanged(object sender, EventArgs e)
         {
             DoFilter();
@@ -105,18 +120,6 @@ namespace car_dealership
             }
 
             DoFilter();
-        }
-
-        private void ProfileStripButton_Click(object sender, EventArgs e)
-        {
-            var form = new MyAccount(users, cars);
-            form.Show();
-        }
-
-        private void NotificationsStripButton_Click(object sender, EventArgs e)
-        {
-            var form = new Notifications(users.currentUser);
-            form.Show();
         }
     }
 }
