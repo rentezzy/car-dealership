@@ -2,7 +2,6 @@ using car_dealership.Controls;
 using car_dealership.Forms;
 using car_dealership.Models;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace car_dealership
 {
@@ -15,18 +14,6 @@ namespace car_dealership
         {
             InitializeComponent();
             DataAccess.Load(cars, users);
-
-            /*users.addUser("hello");
-            users.addUser("me");
-            users.addUser("admin");
-            
-            cars.addCar(new Car("Daewoo", "Matiz", 12412, 2005, 1.3, "Mechanical", "New", users.getUsers()[1]));
-            cars.addCar(new Car("Daewoo", "Lanos", 1212412, 2005, 1.4, "Mechanical", "New", users.getUsers()[0]));
-            cars.addCar(new Car("Daewoo", "World", 124312, 2000, 1.4, "Mechanical", "New", users.getUsers()[1]));
-            cars.addCar(new Car("Daewoo", "QuQu", 124212, 2002, 1.3, "Mechanical", "New", users.getUsers()[0]));
-            cars.addCar(new Car("Daewoo", "Sens", 102, 2009, 1.3, "Mechanical", "New", users.getUsers()[1]));*/
-
-            //DataAccess.Save(cars, users);
             users.setUser("default");
             bindingSource1.DataSource = cars.getCars();
         }
@@ -35,9 +22,9 @@ namespace car_dealership
 
         private void SaleCarStripButton_Click(object sender, EventArgs e)
         {
-            var form = new SaleCar(cars , users);
+            var form = new SaleCar(cars, users);
             form.ShowDialog();
-            if(form.DialogResult == DialogResult.OK)
+            if (form.DialogResult == DialogResult.OK)
             {
                 bindingSource1.DataSource = form.cars.getCars();
                 bindingSource1.ResetBindings(true);

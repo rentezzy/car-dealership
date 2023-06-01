@@ -17,7 +17,7 @@ namespace car_dealership.Forms
         private Car car;
         private Users users;
         private CarsList cars;
-        public CarInfo(Car car, Users users,CarsList cars)
+        public CarInfo(Car car, Users users, CarsList cars)
         {
             InitializeComponent();
 
@@ -44,9 +44,9 @@ namespace car_dealership.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             if (car.owner.username == users.currentUser.username || users.currentUser.username == "default") return;
-            foreach(User u in users.users)
+            foreach (User u in users.users)
             {
-                if(u.username == car.owner.username)
+                if (u.username == car.owner.username)
                 {
                     u.AddNotification($"User '{users.currentUser.username}', want to buy your car : {car.ToString()}");
                     DataAccess.Save(cars, users);

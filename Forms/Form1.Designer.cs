@@ -33,7 +33,6 @@
             menuStrip1 = new MenuStrip();
             CarsStripButton = new ToolStripMenuItem();
             SaleCarStripButton = new ToolStripMenuItem();
-            BuyCarStripButton = new ToolStripMenuItem();
             NotificationsStripButton = new ToolStripMenuItem();
             ProfileStripButton = new ToolStripMenuItem();
             bindingSource1 = new BindingSource(components);
@@ -69,7 +68,7 @@
             // 
             // CarsStripButton
             // 
-            CarsStripButton.DropDownItems.AddRange(new ToolStripItem[] { SaleCarStripButton, BuyCarStripButton });
+            CarsStripButton.DropDownItems.AddRange(new ToolStripItem[] { SaleCarStripButton });
             CarsStripButton.Name = "CarsStripButton";
             CarsStripButton.Size = new Size(42, 20);
             CarsStripButton.Text = "Cars";
@@ -80,12 +79,6 @@
             SaleCarStripButton.Size = new Size(116, 22);
             SaleCarStripButton.Text = "Sale Car";
             SaleCarStripButton.Click += SaleCarStripButton_Click;
-            // 
-            // BuyCarStripButton
-            // 
-            BuyCarStripButton.Name = "BuyCarStripButton";
-            BuyCarStripButton.Size = new Size(116, 22);
-            BuyCarStripButton.Text = "Buy Car";
             // 
             // NotificationsStripButton
             // 
@@ -288,7 +281,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem CarsStripButton;
         private ToolStripMenuItem SaleCarStripButton;
-        private ToolStripMenuItem BuyCarStripButton;
         private ToolStripMenuItem NotificationsStripButton;
         private ToolStripMenuItem ProfileStripButton;
         private BindingSource bindingSource1;

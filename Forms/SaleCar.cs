@@ -39,7 +39,8 @@ namespace car_dealership.Forms
             try
             {
                 engine = Convert.ToDouble(SaleCarEngine.Text);
-            } catch
+            }
+            catch
             {
                 errors += "Engine must be a number in format *,* ";
             }

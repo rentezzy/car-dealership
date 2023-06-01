@@ -8,7 +8,7 @@ namespace car_dealership.Models
 {
     public class Notification
     {
-        public string message { get;set; }
+        public string message { get; set; }
         public Notification()
         {
         }
