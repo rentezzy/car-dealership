@@ -90,11 +90,12 @@
             Controls.Add(MyAccountUsername);
             Controls.Add(MyAccountCurrentUser);
             Controls.Add(label1);
+            MaximumSize = new Size(543, 166);
+            MinimumSize = new Size(543, 166);
             Name = "MyAccount";
             StartPosition = FormStartPosition.CenterParent;
             Text = "MyAccount";
             TopMost = true;
-            Load += MyAccount_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -24,15 +24,13 @@ namespace car_dealership.Forms
             MyAccountCurrentUser.Text = users.currentUser.username;
         }
 
-        private void MyAccount_Load(object sender, EventArgs e)
-        {
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            if (MyAccountUsername.Text == "") return;
             users.addUser(MyAccountUsername.Text);
             users.setUser(MyAccountUsername.Text);
             MyAccountCurrentUser.Text = users.currentUser.username;
+            MyAccountUsername.Text = "";
             DataAccess.Save(cars, users);
         }
     }

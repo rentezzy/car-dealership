@@ -36,6 +36,7 @@ namespace car_dealership.Forms
             if (SaleCarBrand.Text == "") errors += "Car must have a brand. ";
             if (SaleCarModel.Text == "") errors += "Car must have a model. ";
             if (SaleCarPrice.Text == "") errors += "Car must have a price. ";
+            if (SaleCarYear.Text == "") errors += "Car must have a year. ";
             try
             {
                 engine = Convert.ToDouble(SaleCarEngine.Text);
@@ -86,8 +87,5 @@ namespace car_dealership.Forms
             }
         }
 
-        private void SaleCarEngine_TextChanged(object sender, EventArgs e)
-        {
-        }
     }
 }

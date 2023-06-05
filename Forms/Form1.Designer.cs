@@ -102,7 +102,7 @@
             CarsList.ItemHeight = 15;
             CarsList.Location = new Point(12, 113);
             CarsList.Name = "CarsList";
-            CarsList.Size = new Size(778, 244);
+            CarsList.Size = new Size(778, 259);
             CarsList.TabIndex = 1;
             // 
             // GetCarInfoButton
@@ -119,6 +119,7 @@
             // TextBoxFilterModel
             // 
             TextBoxFilterModel.Location = new Point(55, 80);
+            TextBoxFilterModel.MaxLength = 32;
             TextBoxFilterModel.Name = "TextBoxFilterModel";
             TextBoxFilterModel.Size = new Size(161, 23);
             TextBoxFilterModel.TabIndex = 3;
@@ -127,6 +128,7 @@
             // TextBoxFilterBrand
             // 
             TextBoxFilterBrand.Location = new Point(55, 51);
+            TextBoxFilterBrand.MaxLength = 32;
             TextBoxFilterBrand.Name = "TextBoxFilterBrand";
             TextBoxFilterBrand.Size = new Size(161, 23);
             TextBoxFilterBrand.TabIndex = 4;
@@ -245,7 +247,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(802, 366);
+            ClientSize = new Size(802, 383);
             Controls.Add(label7);
             Controls.Add(label8);
             Controls.Add(TextBoxFilterPriceFrom);
@@ -265,10 +267,11 @@
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            MinimumSize = new Size(818, 405);
+            MinimumSize = new Size(818, 422);
             Name = "Form1";
             Text = "Car Dealership";
             TopMost = true;
+            FormClosing += Form1_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();

@@ -14,10 +14,9 @@ namespace car_dealership
         {
             InitializeComponent();
             DataAccess.Load(cars, users);
-            users.setUser("default");
+            users.addUser("default");
             bindingSource1.DataSource = cars.getCars();
         }
-
 
 
         private void SaleCarStripButton_Click(object sender, EventArgs e)
@@ -33,6 +32,11 @@ namespace car_dealership
 
         private void NotificationsStripButton_Click(object sender, EventArgs e)
         {
+            if (users.currentUser.username == "default")
+            {
+                MessageBox.Show("You must switch user to use it.", "ooppss...", MessageBoxButtons.OK);
+                return;
+            }
             var form = new Notifications(users.currentUser);
             form.Show();
         }
@@ -107,6 +111,11 @@ namespace car_dealership
             }
 
             DoFilter();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DataAccess.Save(cars, users);
         }
     }
 }

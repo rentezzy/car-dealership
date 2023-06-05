@@ -36,13 +36,14 @@ namespace car_dealership.Forms
             CarInfoOwner.Text = car.owner.username;
         }
 
-        private void CarInfo_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (users.currentUser.username == "default")
+            {
+                MessageBox.Show("You must switch user to use it.", "ooppss...", MessageBoxButtons.OK);
+                return;
+            }
             if (car.owner.username == users.currentUser.username || users.currentUser.username == "default") return;
             foreach (User u in users.users)
             {

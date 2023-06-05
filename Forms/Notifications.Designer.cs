@@ -36,27 +36,28 @@
             // 
             // listBox1
             // 
+            listBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listBox1.DataSource = bindingSource_notifications;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(12, 22);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(502, 229);
+            listBox1.Size = new Size(507, 259);
             listBox1.TabIndex = 0;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // Notifications
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(526, 269);
+            ClientSize = new Size(531, 294);
             Controls.Add(listBox1);
+            MaximumSize = new Size(1080, 1920);
+            MinimumSize = new Size(547, 331);
             Name = "Notifications";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Notifications";
             TopMost = true;
-            Load += Notifications_Load;
             ((System.ComponentModel.ISupportInitialize)bindingSource_notifications).EndInit();
             ResumeLayout(false);
         }

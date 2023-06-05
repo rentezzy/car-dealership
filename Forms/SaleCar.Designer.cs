@@ -117,20 +117,25 @@
             // 
             // SaleCarBrand
             // 
+            SaleCarBrand.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SaleCarBrand.Location = new Point(82, 12);
+            SaleCarBrand.MaxLength = 32;
             SaleCarBrand.Name = "SaleCarBrand";
             SaleCarBrand.Size = new Size(210, 23);
             SaleCarBrand.TabIndex = 24;
             // 
             // SaleCarModel
             // 
+            SaleCarModel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SaleCarModel.Location = new Point(82, 37);
+            SaleCarModel.MaxLength = 32;
             SaleCarModel.Name = "SaleCarModel";
             SaleCarModel.Size = new Size(210, 23);
             SaleCarModel.TabIndex = 25;
             // 
             // SaleCarPrice
             // 
+            SaleCarPrice.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SaleCarPrice.Location = new Point(82, 62);
             SaleCarPrice.MaxLength = 10;
             SaleCarPrice.Name = "SaleCarPrice";
@@ -140,6 +145,7 @@
             // 
             // SaleCarYear
             // 
+            SaleCarYear.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SaleCarYear.Location = new Point(82, 87);
             SaleCarYear.MaxLength = 4;
             SaleCarYear.Name = "SaleCarYear";
@@ -149,15 +155,16 @@
             // 
             // SaleCarEngine
             // 
+            SaleCarEngine.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SaleCarEngine.Location = new Point(82, 137);
             SaleCarEngine.MaxLength = 5;
             SaleCarEngine.Name = "SaleCarEngine";
             SaleCarEngine.Size = new Size(210, 23);
             SaleCarEngine.TabIndex = 28;
-            SaleCarEngine.TextChanged += SaleCarEngine_TextChanged;
             // 
             // SaleCarCondition
             // 
+            SaleCarCondition.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SaleCarCondition.DropDownStyle = ComboBoxStyle.DropDownList;
             SaleCarCondition.FormattingEnabled = true;
             SaleCarCondition.Items.AddRange(new object[] { "Used", "New" });
@@ -168,6 +175,7 @@
             // 
             // SaleCarGearbox
             // 
+            SaleCarGearbox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             SaleCarGearbox.BackColor = SystemColors.Window;
             SaleCarGearbox.DropDownStyle = ComboBoxStyle.DropDownList;
             SaleCarGearbox.ForeColor = SystemColors.MenuText;
@@ -180,7 +188,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(112, 213);
+            button1.Location = new Point(112, 195);
             button1.Name = "button1";
             button1.Size = new Size(100, 27);
             button1.TabIndex = 31;
@@ -193,7 +201,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(317, 252);
+            ClientSize = new Size(317, 228);
             Controls.Add(button1);
             Controls.Add(SaleCarGearbox);
             Controls.Add(SaleCarCondition);
@@ -209,6 +217,8 @@
             Controls.Add(label6);
             Controls.Add(label3);
             Controls.Add(label1);
+            MaximumSize = new Size(1080, 267);
+            MinimumSize = new Size(333, 267);
             Name = "SaleCar";
             StartPosition = FormStartPosition.CenterParent;
             Text = "SaleCar";

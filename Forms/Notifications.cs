@@ -19,14 +19,5 @@ namespace car_dealership.Forms
             bindingSource_notifications.DataSource = currentUser.notifications;
             this.Text = currentUser.username;
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Notifications_Load(object sender, EventArgs e)
-        {
-        }
     }
 }
