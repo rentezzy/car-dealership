@@ -10,7 +10,6 @@ namespace car_dealership.Models
     {
         public string username { get; set; }
         public List<Notification> notifications { get; set; }
-        public List<Car> carsToBuy { get; set; }
         public User()
         {
         }
@@ -18,7 +17,6 @@ namespace car_dealership.Models
         {
             this.username = username;
             notifications = new();
-            carsToBuy = new();
         }
 
         public void AddNotification(string message)
