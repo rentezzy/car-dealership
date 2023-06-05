@@ -30,6 +30,7 @@ namespace car_dealership.Models
             {
                 if (u.username == username)
                 {
+                    setUser(username);
                     return;
                 }
             }
